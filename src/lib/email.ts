@@ -2,10 +2,25 @@ import { Resend } from "resend";
 import { db } from "@/lib/db";
 import { PRODUCT } from "@/config/product";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const FROM_EMAIL = process.env.EMAIL_FROM || `${PRODUCT.companyName} <${PRODUCT.supportEmail}>`;
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
+// Lazily created so builds and page-data collection never fail when the key
+// is absent — email is optional (see DEPLOYMENT.md §3).
+let _resend: Resend | null = null;
+
+function getResend(): Resend {
+  if (!_resend) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error(
+        "Email is not configured on this installation. Set RESEND_API_KEY (and optionally EMAIL_FROM) in .env to send email."
+      );
+    }
+    _resend = new Resend(apiKey);
+  }
+  return _resend;
+}
 
 interface SendEmailParams {
   to: string | string[];
@@ -73,7 +88,7 @@ function esc(str: string | null | undefined): string {
 // ─── Send Email ─────────────────────────────────────────
 
 export async function sendEmail({ to, subject, html, replyTo }: SendEmailParams) {
-  const { data, error } = await resend.emails.send({
+  const { data, error } = await getResend().emails.send({
     from: FROM_EMAIL,
     to: Array.isArray(to) ? to : [to],
     subject,

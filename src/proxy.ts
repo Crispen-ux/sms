@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
 /**
- * Route protection model:
+ * Route protection model (Next.js 16 "proxy" — formerly middleware):
  *
  *  - Public marketing/auth pages  → accessible without a session
  *  - Portal pages (/admin, /teacher, /parent, /student) → session + role required
@@ -24,7 +24,7 @@ const PORTAL_ROUTES: { prefix: string; roles: string[] }[] = [
   { prefix: "/student", roles: ["SUPER_ADMIN", "SCHOOL_ADMIN", "STUDENT"] },
 ];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Static files and framework assets
