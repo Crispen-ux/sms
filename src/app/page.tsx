@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ProductTour from "@/components/ProductTour";
 import { useInView } from "@/lib/useInView";
 import { MODULES, MODULE_CATEGORIES } from "@/lib/modules";
 import type { ModuleDefinition } from "@/lib/modules";
@@ -824,7 +825,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7. DEMO CTA ──────────────────────────────────────── */}
+      {/* ── 7. PRODUCT TOUR (animated) ──────────────────────── */}
+      <section
+        id="tour"
+        aria-label="Product tour"
+        className="scroll-mt-24 py-20 lg:py-28 bg-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-3xl">
+            <Eyebrow>Product tour</Eyebrow>
+            <h2 className="text-editorial mt-5 text-brand-dark">
+              Sign in, and the school is at your fingertips.
+            </h2>
+            <p className="mt-5 text-lg text-brand-gray leading-relaxed">
+              A quick look at what your staff see after they sign in — from the
+              first login to the register, records and fees.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120} className="mt-12">
+            <ProductTour />
+          </Reveal>
+
+          <Reveal delay={200}>
+            <p className="mt-8 flex items-start gap-2.5 rounded-xl border border-brand-mid bg-white px-5 py-4 text-sm text-brand-gray text-left max-w-2xl">
+              <Info
+                className="w-4 h-4 mt-0.5 shrink-0 text-brand-red"
+                aria-hidden="true"
+              />
+              The interface adapts to each school&rsquo;s branding and to the
+              modules it has enabled — what you see here is an illustration, and
+              the{" "}
+              <Link href="/login" className="font-semibold text-brand-red underline-offset-2 hover:underline">
+                live demo
+              </Link>{" "}
+              uses your browser, so you can click through it yourself.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── 8. DEMO CTA ──────────────────────────────────────── */}
       <section
         id="demo"
         aria-label="Live demo"
@@ -872,7 +913,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 8. PRICING ───────────────────────────────────────── */}
+      {/* ── 9. PRICING ───────────────────────────────────────── */}
       <section
         id="pricing"
         aria-label="Pricing"
@@ -936,7 +977,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 9. CONTACT STRIP ─────────────────────────────────── */}
+      {/* ── 10. CONTACT STRIP ─────────────────────────────────── */}
       <section
         id="contact"
         aria-label="Contact Cretek"

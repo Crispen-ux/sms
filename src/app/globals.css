@@ -142,6 +142,60 @@ a:focus-visible {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 
+/* ── Product tour (marketing page) ───────────────────────── */
+
+@keyframes tour-caret {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.tour-caret {
+  animation: tour-caret 1.05s step-end infinite;
+}
+
+@keyframes tour-row {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tour-row {
+  opacity: 0;
+  animation: tour-row 0.45s ease-out forwards;
+}
+
+@keyframes tour-bar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.tour-bar {
+  transform-origin: bottom;
+  animation: tour-bar 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes tour-fill {
+  from { width: 0; }
+  to { width: var(--tour-w, 0%); }
+}
+.tour-fill {
+  width: var(--tour-w, 0%);
+  animation: tour-fill 0.9s ease-out 0.25s backwards;
+}
+
+@keyframes tour-ring {
+  from { stroke-dashoffset: var(--tour-from, 214); }
+  to { stroke-dashoffset: var(--tour-to, 214); }
+}
+.tour-ring {
+  animation: tour-ring 1s ease-out 0.3s backwards;
+}
+
+@keyframes tour-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.tour-progress {
+  animation: tour-progress var(--tour-dur, 4.6s) linear forwards;
+}
+
 /* Editorial typography */
 .text-display {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
