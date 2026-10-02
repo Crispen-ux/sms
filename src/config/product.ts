@@ -17,9 +17,9 @@ const PRODUCT_VERSION =
 const COMPANY_NAME =
   process.env.NEXT_PUBLIC_COMPANY_NAME ?? process.env.COMPANY_NAME ?? "Cretek";
 const COMPANY_WEBSITE =
-  process.env.NEXT_PUBLIC_COMPANY_WEBSITE ?? process.env.COMPANY_WEBSITE ?? "https://cretek.co.za";
+  process.env.NEXT_PUBLIC_COMPANY_WEBSITE ?? process.env.COMPANY_WEBSITE ?? "https://cretekgroup.co.za";
 const SUPPORT_EMAIL =
-  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? process.env.SUPPORT_EMAIL ?? "info@cretek.co.za";
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? process.env.SUPPORT_EMAIL ?? "info@cretekgroup.co.za";
 const PRODUCT_LOGO =
   process.env.NEXT_PUBLIC_PRODUCT_LOGO ?? process.env.PRODUCT_LOGO ?? "/favicon.svg";
 const PRIMARY_COLOR =
@@ -34,9 +34,9 @@ export interface ProductConfig {
   version: string;
   /** e.g. "Cretek" */
   companyName: string;
-  /** e.g. "https://cretek.co.za" */
+  /** e.g. "https://cretekgroup.co.za" */
   companyWebsite: string;
-  /** e.g. "info@cretek.co.za" */
+  /** e.g. "info@cretekgroup.co.za" */
   supportEmail: string;
   /** Product logo shown on the marketing site and unbranded surfaces */
   logo: string;

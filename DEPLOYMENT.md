@@ -99,8 +99,8 @@ Template: `.env.example`. Copy to `.env` per installation. Secrets are marked
 | `PRODUCT_NAME` | Product/display name (default "Cretek SchoolOS") | optional | `Cretek SchoolOS` |
 | `PRODUCT_VERSION` | Version shown in the UI | optional | `1.0.0` |
 | `COMPANY_NAME` | Vendor/company name | optional | `Cretek` |
-| `COMPANY_WEBSITE` | Vendor/company website | optional | `https://cretek.co.za` |
-| `SUPPORT_EMAIL` | Support contact shown in UI/emails | optional | `info@cretek.co.za` |
+| `COMPANY_WEBSITE` | Vendor/company website | optional | `https://cretekgroup.co.za` |
+| `SUPPORT_EMAIL` | Support contact shown in UI/emails | optional | `info@cretekgroup.co.za` |
 | `PRODUCT_LOGO` | Path/URL of the product logo | optional | `/favicon.svg` |
 | `PRIMARY_COLOR` | Default primary/accent colour (hex) | optional | `#D10000` |
 | `SECONDARY_COLOR` | Default secondary colour (hex) | optional | `#1A1A1A` |
