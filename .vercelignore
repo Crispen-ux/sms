@@ -1,0 +1,9 @@
+# Never upload local secrets/build output on CLI deploys
+.env
+.env.*
+!.env.example
+.next
+node_modules
+.vercel
+tsconfig.tsbuildinfo
+dev-output.log
